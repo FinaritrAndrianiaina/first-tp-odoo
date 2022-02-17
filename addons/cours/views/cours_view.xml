@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <data>
+        
+        <record id="cours_menu_action" model="ir.actions.act_window" >
+            <field name="name">cours</field>
+            <field name="res_model">cours.cours</field>
+            <field name="view_mode">form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create first cours
+                </p>
+            </field>
+        </record>
+        <menuitem id="cours_menu" name="Course"/>
+        <menuitem id="school_student_menu" parent="cours_menu" name="Student" action="cours_menu_action"/>
+    </data>
+</odoo>

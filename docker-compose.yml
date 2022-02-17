@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+  web:
+    image: odoo:13.0
+    depends_on:
+      - mydb
+    ports:
+      - "8069:8069"
+    environment:
+    - HOST=mydb
+    - USER=odoo
+    - PASSWORD=myodoo
+    volumes:
+      - ./addons:/mnt/extra-addons
+  mydb:
+    image: postgres:11.5
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=myodoo
+      - POSTGRES_USER=odoo
+    ports:
+      - "5433:5432"
+  pgadmin:
+    image: dpage/pgadmin4:4
+    ports:
+      - "89:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: finaritra@admin.com
+      PGADMIN_DEFAULT_PASSWORD: finaritra
