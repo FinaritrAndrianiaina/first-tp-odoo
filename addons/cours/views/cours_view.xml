@@ -14,7 +14,19 @@
                 </p>
             </field>
         </record>
+        <record id="tags_menu_action" model="ir.actions.act_window" >
+            <field name="name">tags</field>
+            <field name="res_model">category.category</field>
+            <field name="view_mode">form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create first category
+                </p>
+            </field>
+        </record>
         <menuitem id="cours_menu" name="Course"/>
-        <menuitem id="school_student_menu" parent="cours_menu" name="Student" action="cours_menu_action"/>
+        <menuitem id="cours_student_menu" parent="cours_menu" name="Cours" action="cours_menu_action"/>
+        <menuitem id="tags_student_menu" parent="cours_menu" name="Tags" action="tags_menu_action"/>
     </data>
 </odoo>
